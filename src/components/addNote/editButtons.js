@@ -12,36 +12,36 @@ import {
 } from 'iconsax-react-native';
 
 // create a component
-const EditButtons = () => {
+const EditButtons = ({onChangeStyle}) => {
   const Buttons = [
     {
       id: 1,
-      name: 'bold',
+      value: 'bold',
       icon: <TextBold size="30" color={AppColors.SECONDARY} />,
     },
     {
       id: 2,
-      name: 'bold',
+      value: 'italic',
       icon: <TextBlock size="30" color={AppColors.SECONDARY} />,
     },
     {
       id: 3,
-      name: 'bold',
+      value: 'textUnderline',
       icon: <TextUnderline size="30" color={AppColors.SECONDARY} />,
     },
     {
       id: 4,
-      name: 'bold',
+      value: 'left',
       icon: <TextalignJustifyleft size="30" color={AppColors.SECONDARY} />,
     },
     {
       id: 5,
-      name: 'bold',
+      value: 'right',
       icon: <TextalignJustifyright size="30" color={AppColors.SECONDARY} />,
     },
     {
       id: 6,
-      name: 'bold',
+      value: 'center',
       icon: <TextalignCenter size="30" color={AppColors.SECONDARY} />,
     },
   ];
@@ -49,7 +49,11 @@ const EditButtons = () => {
   return (
     <View style={styles.container}>
       {Buttons.map((item, index) => (
-        <TouchableOpacity key={item.id}>{item.icon}</TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => onChangeStyle(item.value)}
+          key={item.id}>
+          {item.icon}
+        </TouchableOpacity>
       ))}
     </View>
   );
